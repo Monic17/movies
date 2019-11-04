@@ -52,3 +52,5 @@ http://localhost:3000/movies/elliot-minirenen-2018/trailer
 * add more endpoints using the data from the existing external services
 * add more tests
 * change the response data to have more context
+* add the rest of the stage environments
+* add codepipiline
