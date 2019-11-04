@@ -17,7 +17,7 @@ Deploy to AWS: `sls deploy`
 
 
 -----------
-* Routes *
+** Routes 
 -----------
 
 * GET `/movies/{movie_path_url}`
