@@ -1,0 +1,23 @@
+{
+  "name": "movies-api",
+  "description": " api to get movie information.",
+  "version": "1.0.0",
+  "author": "Lana",
+  "license": "UNLICENSED",
+  "main": "handler.js",
+  "scripts": {
+    "start": "./node_modules/.bin/sls offline start -r us-east-1 --noTimeout"
+  },
+  "dependencies": {
+    "joi": "^14.3.1",
+    "lodash": "^4.17.15",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "serverless-api-gateway-caching": "^1.4.0",
+    "serverless-prune-plugin": "^1.4.1",
+    "serverless-secrets-plugin": "^0.1.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^5.12.0"
+  }
+}

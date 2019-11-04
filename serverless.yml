@@ -1,0 +1,99 @@
+service: movies-api
+
+package:
+  individually: true
+
+plugins:
+  - serverless-prune-plugin
+  - serverless-offline
+  - serverless-api-gateway-caching
+  - serverless-secrets-plugin
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: eu-west-1
+  memorySize: 512
+  timeout: 30
+  profile: personal
+  logs:
+    restApi: true
+
+iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - 'lambda:InvokeFunction'
+      - 'lambda:InvokeAsync'
+      - 'logs:CreateLogGroup'
+      - 'logs:CreateLogStream'
+      - 'logs:PutLogEvents'
+      - 'api:*'
+    Resource: '*'
+
+custom:
+  secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
+  prune:
+    automatic: true
+    number: 15
+  serverless-offline:
+    resourceRoutes: true
+  apiGatewayCaching:
+    enabled: true
+
+functions:
+  getMovie:
+    handler: handler.getMovie
+    description: use the movie url to get the link for the movie data
+    events:
+      - http:
+          path: /movies/{movie_path_url}
+          method: GET
+          request:
+            parameters:
+              paths:
+                movie_path_url: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+            cacheControl: 'max-age=600, s-maxage=600, proxy-revalidate'
+          response:
+            headers:
+              Content-Type: "'application/json'"
+              Cache-Control: "'max-age=120'"
+
+  getTrailer:
+    handler: handler.getTrailer
+    description: use the movie url to get the link for the movie trailer
+    environment:
+      themoviedb_api_key: ${self:custom.secrets.themoviedb_api_key}
+    events:
+      - http:
+          path: /movies/{movie_path_url}/trailer
+          method: GET
+          request:
+            parameters:
+              paths:
+                movie_path_url: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
+            cacheControl: 'max-age=600, s-maxage=600, proxy-revalidate'
+          response:
+            headers:
+              Content-Type: "'application/json'"
+              Cache-Control: "'max-age=120'"
