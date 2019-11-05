@@ -5,23 +5,42 @@
   "author": "Lana",
   "license": "UNLICENSED",
   "main": "handler.js",
+  "repository": "git@github.com:Monic17/movies.git",
   "scripts": {
-    "start": "./node_modules/.bin/sls offline start -r us-east-1 --noTimeout"
+    "lint": "eslint src",
+    "test": "npm run lint && node tests/runTests",
+    "precommit": "lint-staged",
+    "start": "./node_modules/.bin/sls offline start -r eu-west-1 --stage test --noTimeout"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Monic17/movies.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   },
   "dependencies": {
     "joi": "^14.3.1",
     "lodash": "^4.17.15",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
-    "serverless-api-gateway-caching": "^1.4.0",
-    "serverless-prune-plugin": "^1.4.1",
-    "serverless-secrets-plugin": "^0.1.0"
+    "serverless-api-gateway-caching": "^1.4.0"
   },
   "devDependencies": {
-    "serverless-offline": "^5.12.0"
+    "dotenv": "^8.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^14.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.0.0-beta.5",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "serverless": "^1.56.1",
+    "serverless-offline": "^5.12.0",
+    "serverless-prune-plugin": "^1.4.1",
+    "serverless-secrets-plugin": "^0.1.0"
   }
 }

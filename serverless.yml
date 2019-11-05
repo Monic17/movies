@@ -43,7 +43,7 @@ custom:
 
 functions:
   getMovie:
-    handler: handler.getMovie
+    handler: src/handler.getMovie
     description: use the movie url to get the link for the movie data
     events:
       - http:
@@ -70,7 +70,7 @@ functions:
               Cache-Control: "'max-age=120'"
 
   getTrailer:
-    handler: handler.getTrailer
+    handler: src/handler.getTrailer
     description: use the movie url to get the link for the movie trailer
     environment:
       themoviedb_api_key: ${self:custom.secrets.themoviedb_api_key}
