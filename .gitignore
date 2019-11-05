@@ -7,3 +7,5 @@ jspm_packages
 
 secrets.test.yml
 secrets.dev.yml
+
+package-lock.json

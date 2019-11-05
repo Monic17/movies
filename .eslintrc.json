@@ -1,0 +1,22 @@
+{
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019
+  },
+  "plugins": ["standard", "prettier", "promise", "node", "import"],
+  "extends": ["standard", "prettier"],
+  "rules": {
+    "semi": ["error", "always"],
+    "space-before-function-paren": ["off", "never"],
+    "callback-return": "error",
+    "handle-callback-err": "warn",
+    "no-console": "warn",
+    "standard/no-callback-literal": "warn",
+    "node/no-deprecated-api": "warn",
+    "no-template-curly-in-string": "warn",
+    "standard/computed-property-even-spacing": ["off", "never"]
+  }
+}
