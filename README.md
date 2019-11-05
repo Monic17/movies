@@ -54,3 +54,4 @@ http://localhost:3000/movies/elliot-minirenen-2018/trailer
 * change the response data to have more context
 * add the rest of the stage environments
 * add codepipiline
+* add logging Loggly/Sentry
