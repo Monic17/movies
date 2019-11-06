@@ -1,4 +1,7 @@
 # movies api
+
+Simple Node.js API with Lambda and API Gateway to get movie data and trailers
+
 ==================================================
 
 Install all dependencies: `npm install`
