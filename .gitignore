@@ -5,7 +5,6 @@ jspm_packages
 # Serverless directories
 .serverless
 
-secrets.test.yml
-secrets.dev.yml
+secrets.*.yml
 
 package-lock.json

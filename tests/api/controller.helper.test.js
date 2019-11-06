@@ -21,7 +21,7 @@ describe('controller helper', () => {
     const getMovieDataSpy = jest.spyOn(movieService, 'getMovieData')
       .mockImplementation(() => Promise.resolve(movieDataFactory2));
 
-    const event = { pathParameters: { movie_path_url: moviePathUrl2 } }
+    const event = { pathParameters: { movie_path_url: moviePathUrl2 } };
       
     try {
       const trailerData = await controller({
