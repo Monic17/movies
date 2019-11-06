@@ -14,8 +14,7 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: eu-west-1
-  memorySize: 512
-  timeout: 30
+  timeout: 15
   profile: personal
   logs:
     restApi: true
@@ -63,11 +62,11 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: false
-            cacheControl: 'max-age=600, s-maxage=600, proxy-revalidate'
+            cacheControl: 'max-age=3600'
           response:
             headers:
               Content-Type: "'application/json'"
-              Cache-Control: "'max-age=120'"
+              Cache-Control: "'max-age=3600'"
 
   getTrailer:
     handler: src/handler.getTrailer
@@ -92,8 +91,8 @@ functions:
               - X-Amz-Security-Token
               - X-Amz-User-Agent
             allowCredentials: false
-            cacheControl: 'max-age=600, s-maxage=600, proxy-revalidate'
+            cacheControl: 'max-age=3600'
           response:
             headers:
               Content-Type: "'application/json'"
-              Cache-Control: "'max-age=120'"
+              Cache-Control: "'max-age=3600'"
