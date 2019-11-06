@@ -118,6 +118,7 @@ const videoDataFactory2 = {
     }
   ]
 };
+
 const videoDataResponse1 = '8RcExsA-8FI';
 const videoDataResponse2 = 'Z1BCujX3pw8';
 
@@ -261,11 +262,25 @@ const movieDataFactory2 = {
   responseCode: { httpStatus: 200, statusCode: 200, code: 1 }
 };
 
+const imdbId1='tt4003440';
+const imdbId2='tt4154664';
+
+const moviePathUrl2 = 'captain-marvel-2019';
+
+const trailerData2 = { 
+  movie_path_url: 'captain-marvel-2019', 
+  trailer_url: `https://www.youtube.com/watch?v=${videoDataResponse2}`
+};
+
 module.exports = {
   videoDataFactory1,
   videoDataFactory2,
   videoDataResponse1,
   videoDataResponse2,
   movieDataFactory1,
-  movieDataFactory2
+  movieDataFactory2,
+  imdbId1,
+  imdbId2,
+  trailerData2,
+  moviePathUrl2
 };

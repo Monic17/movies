@@ -1,4 +1,4 @@
-function InvalidParameterError(message) {
+function InvalidParametersError(message) {
   this.error = `Invalid parameters`;
   this.message = message;
   this.statusCode = '400';
@@ -22,6 +22,6 @@ function getJoiErrorMessage({ error }) {
 
 module.exports = {
   ResourceMissingError,
-  InvalidParameterError,
+  InvalidParametersError,
   getJoiErrorMessage
 };

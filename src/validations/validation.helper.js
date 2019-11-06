@@ -1,7 +1,7 @@
 const _ = require('lodash');
 
 const {
-  InvalidParameterError,
+  InvalidParametersError,
   getJoiErrorMessage
 } = require('../errors/error.handler');
 
@@ -12,7 +12,7 @@ async function validate(attributes, validateFunction) {
   });
 
   if (result.error) {
-    throw new InvalidParameterError(getJoiErrorMessage(result));
+    throw new InvalidParametersError(getJoiErrorMessage(result));
   }
 
   return attributes;

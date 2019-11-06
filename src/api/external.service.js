@@ -1,5 +1,5 @@
 const { ResourceMissingError } = require('../errors/error.handler');
-const { getHttpResponse } = require('./service.helper');
+const serviceHelper = require('./service.helper');
 const { videoTypes, sites } = require('./movie.enums');
 
 function getVideoKey(themoviedbVideoData) {
@@ -23,7 +23,8 @@ function getVideoKey(themoviedbVideoData) {
 async function getExternalMovieData(imdbId) {
   const apiKey = process.env.themoviedb_api_key;
   const uri = `https://api.themoviedb.org/3/movie/${imdbId}/videos?language=en-US&api_key=${apiKey}`;
-  const themoviedbVideoData = await getHttpResponse(uri);
+
+  const themoviedbVideoData = await serviceHelper.getHttpResponse(uri);
 
   const videoKey = getVideoKey(themoviedbVideoData);
 
