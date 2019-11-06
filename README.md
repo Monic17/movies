@@ -9,6 +9,7 @@ Add AWS Credentials
 `serverless config credentials --provider aws --key xxxxx --secret zzzzzz --profile yyyyy-profile`
 change profile value in serverless.yaml provider
 
+Add a  `secrets.test.yml` file with the help of `secrets.test.yml.template` to add the apiKey for themoviedb service
 
 Start the API Offline: `npm start`
 
