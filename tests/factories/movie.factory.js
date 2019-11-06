@@ -268,9 +268,24 @@ const imdbId2='tt4154664';
 const moviePathUrl2 = 'captain-marvel-2019';
 
 const trailerData2 = { 
-  movie_path_url: 'captain-marvel-2019', 
+  movie_path_url: moviePathUrl2, 
   trailer_url: `https://www.youtube.com/watch?v=${videoDataResponse2}`
 };
+
+const controllerTrailerResponse2 = { 
+  statusCode: 200,
+  body: '{"movie_path_url":"captain-marvel-2019","trailer_url":"https://www.youtube.com/watch?v=Z1BCujX3pw8"}' 
+};
+
+const event2 = { pathParameters: { movie_path_url: moviePathUrl2 } };
+
+const validatorResponse = { moviePathUrl: moviePathUrl2 };
+
+const errorEvent = { pathParameters: { movie_path_url: '' } };
+
+const validationErrorMessage = `* "moviePathUrl" is not allowed to be empty   ... 
+* "moviePathUrl" length must be at least 1 characters long   ... 
+`;
 
 module.exports = {
   videoDataFactory1,
@@ -282,5 +297,10 @@ module.exports = {
   imdbId1,
   imdbId2,
   trailerData2,
-  moviePathUrl2
+  moviePathUrl2,
+  controllerTrailerResponse2,
+  event2,
+  validatorResponse,
+  errorEvent,
+  validationErrorMessage
 };
