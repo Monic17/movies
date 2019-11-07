@@ -18,17 +18,16 @@ provider:
   profile: personal
   logs:
     restApi: true
-
-iamRoleStatements:
-  - Effect: Allow
-    Action:
-      - 'lambda:InvokeFunction'
-      - 'lambda:InvokeAsync'
-      - 'logs:CreateLogGroup'
-      - 'logs:CreateLogStream'
-      - 'logs:PutLogEvents'
-      - 'api:*'
-    Resource: '*'
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - 'lambda:InvokeFunction'
+        - 'lambda:InvokeAsync'
+        - 'logs:CreateLogGroup'
+        - 'logs:CreateLogStream'
+        - 'logs:PutLogEvents'
+        - 'api:*'
+      Resource: '*'
 
 custom:
   secrets: ${file(secrets.${opt:stage, self:provider.stage}.yml)}
